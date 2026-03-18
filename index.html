@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo-logos.png">
     <title>Logos | Arquitetura Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -13,6 +14,21 @@
         --logos-blue-electric: #0062ff;/* Azul Logos Destaque */
         --logos-text-dark: #0f172a;    /* Texto Escuro (Fundo Branco) */
         --logos-text-light: #f8fafc;   /* Texto Claro (Fundo Dark) */
+    }
+
+    /* --- LOGO NO CABEÇALHO (NAVBAR) --- */
+    nav img {
+        /* Aumentando a altura consideravelmente */
+        height: 80px !important; /* No desktop */
+        max-height: 90px !important;
+        width: auto !important;
+        transition: transform 0.3s ease;
+    }
+    
+    @media (max-width: 768px) {
+        nav img {
+            height: 60px !important; /* No celular para não ocupar a tela toda */
+        }
     }
 
     /* --- RESTAURAÇÃO DA TIPOGRAFIA --- */
@@ -29,6 +45,64 @@
         font-weight: 800 !important;
         letter-spacing: -0.04em !important;
         line-height: 1.1 !important;
+    }
+
+/* --- AJUSTE ESPECÍFICO PARA O MANIFESTO NO RODAPÉ --- */
+    
+    /* Localiza o parágrafo da "Nossa Essência / Manifesto" no Footer */
+    footer p.italic, 
+    footer .text-purple-200, 
+    footer .font-light.italic {
+        color: #f8fafc !important;      /* Branco gelo (máxima visibilidade) */
+        opacity: 1 !important;          /* Remove qualquer transparência */
+        font-size: 1.1rem !important;   /* Aumenta levemente o tamanho */
+        line-height: 1.8 !important;    /* Dá mais espaço entre as linhas */
+        font-style: italic !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra leve para destacar do fundo */
+    }
+
+    /* Destaque para as palavras Razão, Lógica e Princípio */
+    footer .flex.gap-12 span {
+        color: #0062ff !important;      /* Azul Logos Elétrico */
+        font-weight: 800 !important;
+        letter-spacing: 0.3em !important;
+        opacity: 1 !important;
+    }
+
+    /* Seção de Contatos (Telefone, E-mail, Endereço) */
+    footer ul li {
+        color: #cbd5e1 !important;      /* Cinza prateado nítido */
+        opacity: 1 !important;
+        font-weight: 400 !important;
+    }
+
+    /* Títulos das colunas no rodapé */
+    footer h4, footer h5 {
+        color: #ffffff !important;      /* Branco puro nos títulos */
+        opacity: 1 !important;
+        font-weight: 800 !important;
+    }
+
+    /* --- LOGO NO RODAPÉ (FOOTER) --- */
+    footer img {
+        /* Tamanho imponente para fechar o site com autoridade */
+        height: 180px !important; 
+        max-height: 200px !important;
+        width: auto !important;
+        opacity: 0.9 !important; /* Aumentando a visibilidade que estava baixa */
+        filter: drop-shadow(0 0 20px rgba(0, 98, 255, 0.2)); /* Brilho azul sutil */
+        transition: all 0.5s ease;
+    }
+
+    footer img:hover {
+        opacity: 1 !important;
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 30px rgba(0, 98, 255, 0.4));
+    }
+
+    /* Ajuste de espaçamento para a Logo não ficar apertada */
+    nav .max-w-7xl {
+        height: 120px !important; /* Aumentando a altura da barra para caber a logo maior */
     }
 
     /* --- LIMPEZA DE CORES (FIM DO ROXO) --- */
@@ -90,6 +164,7 @@
 
     #particles-js { opacity: 0.3; }
 </style>
+
 </head>
 <body>
 
