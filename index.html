@@ -7,7 +7,7 @@
     <title>Logos | Arquitetura Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
+<style>
     :root { 
         --logos-blue-deep: #000814;    /* Azul Quase Preto */
         --logos-blue-royal: #001e4d;   /* Azul Real para Gradientes */
@@ -16,18 +16,57 @@
         --logos-text-light: #f8fafc;   /* Texto Claro (Fundo Dark) */
     }
 
+    /* --- COMPACTAÇÃO EXTREMA DA SEÇÃO AZUL (HERO) --- */
+    .bg-matriz-gradient {
+        /* Removemos qualquer altura mínima forçada pelo Tailwind */
+        min-height: 0 !important; 
+        height: auto !important;
+        
+        /* Reduzimos o espaço interno drasticamente */
+        padding-top: 80px !important;    /* Espaço para a logo/nav */
+        padding-bottom: 20px !important;  /* Espaço antes da onda/próxima seção */
+        
+        /* Ajuste do gradiente para acompanhar a compactação */
+        background: radial-gradient(circle at 30% 30%, var(--logos-blue-royal) 0%, var(--logos-blue-deep) 100%) !important;
+    }
+
+    /* Reduz o espaço vago entre o Menu e o Título */
+    nav .max-w-7xl {
+        height: 80px !important; 
+    }
+
+    /* Aproxima os textos dentro da parte azul */
+    .bg-matriz-gradient h1 {
+        margin-top: 10px !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .bg-matriz-gradient p {
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* --- REDUÇÃO DE ESPAÇOS VAGOS NAS OUTRAS SEÇÕES --- */
+    section {
+        padding-top: 40px !important;    
+        padding-bottom: 40px !important; 
+    }
+
+    /* Aproxima títulos de parágrafos em todo o site */
+    h1, h2, h3 {
+        margin-bottom: 0.8rem !important;
+    }
+
     /* --- LOGO NO CABEÇALHO (NAVBAR) --- */
     nav img {
-        /* Aumentando a altura consideravelmente */
-        height: 80px !important; /* No desktop */
-        max-height: 90px !important;
+        height: 70px !important; /* Ligeiramente menor para ajudar na compactação */
+        max-height: 80px !important;
         width: auto !important;
         transition: transform 0.3s ease;
     }
     
     @media (max-width: 768px) {
         nav img {
-            height: 60px !important; /* No celular para não ocupar a tela toda */
+            height: 55px !important;
         }
     }
 
@@ -37,90 +76,82 @@
         background-color: #ffffff; 
         color: var(--logos-text-dark); 
         -webkit-font-smoothing: antialiased;
-        letter-spacing: -0.01em; /* Deixa a fonte mais elegante */
+        letter-spacing: -0.01em;
     }
 
-    /* Títulos Imponentes (Estilo Apple/Matriz) */
     h1, h2, h3, .hero-title {
         font-weight: 800 !important;
         letter-spacing: -0.04em !important;
         line-height: 1.1 !important;
     }
 
-/* --- AJUSTE ESPECÍFICO PARA O MANIFESTO NO RODAPÉ --- */
-    
-    /* Localiza o parágrafo da "Nossa Essência / Manifesto" no Footer */
-    footer p.italic, 
-    footer .text-purple-200, 
-    footer .font-light.italic {
-        color: #f8fafc !important;      /* Branco gelo (máxima visibilidade) */
-        opacity: 1 !important;          /* Remove qualquer transparência */
-        font-size: 1.1rem !important;   /* Aumenta levemente o tamanho */
-        line-height: 1.8 !important;    /* Dá mais espaço entre as linhas */
-        font-style: italic !important;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra leve para destacar do fundo */
+    /* --- ESTILIZAÇÃO DO NOVO RODAPÉ COMPACTO --- */
+    footer {
+        background: #00040a !important;
+        padding-top: 40px !important;
+        padding-bottom: 25px !important;
     }
 
-    /* Destaque para as palavras Razão, Lógica e Princípio */
-    footer .flex.gap-12 span {
-        color: #0062ff !important;      /* Azul Logos Elétrico */
-        font-weight: 800 !important;
-        letter-spacing: 0.3em !important;
-        opacity: 1 !important;
-    }
-
-    /* Seção de Contatos (Telefone, E-mail, Endereço) */
-    footer ul li {
-        color: #cbd5e1 !important;      /* Cinza prateado nítido */
-        opacity: 1 !important;
-        font-weight: 400 !important;
-    }
-
-    /* Títulos das colunas no rodapé */
-    footer h4, footer h5 {
-        color: #ffffff !important;      /* Branco puro nos títulos */
-        opacity: 1 !important;
-        font-weight: 800 !important;
-    }
-
-    /* --- LOGO NO RODAPÉ (FOOTER) --- */
-    footer img {
-        /* Tamanho imponente para fechar o site com autoridade */
-        height: 180px !important; 
-        max-height: 200px !important;
+    .footer-logo {
+        height: 55px !important; 
         width: auto !important;
-        opacity: 0.9 !important; /* Aumentando a visibilidade que estava baixa */
-        filter: drop-shadow(0 0 20px rgba(0, 98, 255, 0.2)); /* Brilho azul sutil */
-        transition: all 0.5s ease;
+        margin-bottom: 8px !important;
+        filter: drop-shadow(0 0 10px rgba(0, 98, 255, 0.2));
     }
 
-    footer img:hover {
-        opacity: 1 !important;
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 30px rgba(0, 98, 255, 0.4));
+    .footer-title {
+        color: #ffffff !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.2em !important;
+        margin-bottom: 15px !important;
+        display: block;
     }
 
-    /* Ajuste de espaçamento para a Logo não ficar apertada */
-    nav .max-w-7xl {
-        height: 120px !important; /* Aumentando a altura da barra para caber a logo maior */
+    .footer-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .footer-list li {
+        margin-bottom: 8px !important;
+        font-size: 13px !important;
+    }
+
+    .footer-list a {
+        color: #94a3b8 !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease !important;
+    }
+
+    .footer-list a:hover {
+        color: #0062ff !important;
+    }
+
+    footer p.italic {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        color: #64748b !important;
+        text-shadow: none !important;
+    }
+
+    footer .border-t {
+        border-color: rgba(255, 255, 255, 0.05) !important;
     }
 
     /* --- LIMPEZA DE CORES (FIM DO ROXO) --- */
-    
-    /* Substituição Global de Fundos Roxos por Gradiente Azul Logos */
     [class*="bg-purple-"], .bg-purple-700, .bg-purple-800, .bg-purple-900 {
         background: radial-gradient(circle at center, var(--logos-blue-royal) 0%, var(--logos-blue-deep) 100%) !important;
         color: var(--logos-text-light) !important;
     }
 
-    /* Substituição de Textos Roxos por Azul Elétrico */
     [class*="text-purple-"], .text-purple-700, .text-purple-800 {
         color: var(--logos-blue-electric) !important;
     }
 
-    /* --- CONTRASTE DE TEXTO (RESOLVENDO O "APAGADO") --- */
-
-    /* Regra para Seções Escuras (Hero e Rodapé) */
+    /* --- CONTRASTE DE TEXTO --- */
     .bg-matriz-gradient, [class*="bg-purple-"], .bg-slate-950 {
         color: var(--logos-text-light) !important;
     }
@@ -131,21 +162,15 @@
         color: rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* Regra para Seções Brancas (Serviços e Depoimentos) */
     .bg-white, .bg-slate-50 {
         color: var(--logos-text-dark) !important;
     }
     .bg-white h2, .bg-white h3, .bg-slate-50 h2, .bg-slate-50 h4 {
-        color: #0f172a !important; /* Títulos pretos bem visíveis */
+        color: #0f172a !important;
     }
     .bg-white p, .bg-slate-50 p {
-        color: #334155 !important; /* Cinza grafite legível */
+        color: #334155 !important;
         font-weight: 400 !important;
-    }
-
-    /* --- GRADIENTE HERO --- */
-    .bg-matriz-gradient {
-        background: radial-gradient(circle at 30% 30%, var(--logos-blue-royal) 0%, var(--logos-blue-deep) 100%) !important;
     }
 
     /* --- BOTÕES --- */
@@ -361,8 +386,9 @@
 
             <div class="mb-24" data-aos="zoom-in">
                 <h3 class="text-2xl md:text-3xl font-bold mb-8">Você merece um site incrível sem <br> precisar gastar uma fortuna!</h3>
-                <a href="https://wa.me/554599999999" class="bg-orange-500 hover:bg-orange-600 text-white px-12 py-4 rounded-full font-black text-sm uppercase tracking-widest transition-all shadow-xl">
-                    Solicitar Orçamento Agora!
+                <a href="https://wa.me/5545999614886?text=Olá!%20Gostaria%20de%20um%20diagnóstico%20estratégico%20para%20o%20meu%20projeto.%20Vi%20o%20manifesto%20da%20Logos%20e%20busco%20uma%20estrutura%20digital%20inteligente%20para%20o%20meu%20negócio." 
+                class="bg-orange-500 hover:bg-orange-600 text-white px-12 py-4 rounded-full font-black text-sm uppercase tracking-widest transition-all shadow-xl inline-block">
+                Solicitar Consultoria Digital
                 </a>
             </div>
 
@@ -372,13 +398,13 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500" data-aos="fade-up">
-                        <img src="img/portfolio-1.jpg" alt="Projeto Logos 1" class="w-full h-auto">
+                        <img src="img/Sites Modelo (1).png" alt="Projeto Logos 1" class="w-full h-auto">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-delay="100">
-                        <img src="img/portfolio-2.jpg" alt="Projeto Logos 2" class="w-full h-auto">
+                        <img src="img/Sites Modelo (2).png" alt="Projeto Logos 2" class="w-full h-auto">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-delay="200">
-                        <img src="img/portfolio-3.jpg" alt="Projeto Logos 3" class="w-full h-auto">
+                        <img src="img/Sites Modelo (3).png" alt="Projeto Logos 3" class="w-full h-auto">
                     </div>
                     </div>
             </div>
@@ -446,7 +472,7 @@
     <section class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="relative order-2 md:order-1" data-aos="fade-right">
-                <img src="img/performance-mockup.png" alt="Performance" class="w-full h-auto">
+                <img src="img/Tecnologia.png" alt="Performance" class="w-full h-auto">
                 <div class="absolute -top-4 -left-4 text-orange-500 text-4xl font-bold">+</div>
             </div>
             <div class="order-1 md:order-2" data-aos="fade-left">
@@ -461,7 +487,7 @@
     </section>
 
     <div class="py-12 bg-orange-500 text-center">
-        <a href="https://wa.me/554599999999" class="text-white text-xl md:text-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block">Quero começar o meu site hoje!</a>
+        <a href="https://wa.me/5545999614886?text=Olá!%20Estou%20navegando%20pelo%20site%20da%20Logos%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20como%20estruturar%20meu%20projeto%20digital." class="text-white text-xl md:text-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform inline-block">Quero começar o meu site hoje!</a>
     </div>
 
     <section id="contato" class="py-24 bg-purple-700 text-white text-center">
@@ -488,64 +514,81 @@
                     <div class="bg-orange-500 p-3 rounded-full group-hover:bg-orange-400 transition">
                         <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     </div>
-                    <div class="text-left leading-tight">
-                        <span class="text-[10px] font-black uppercase text-purple-200 tracking-widest">Chame no Whatsapp</span><br>
-                        <span class="text-xl font-black italic">45 99961-4886</span>
+                    <a href="https://wa.me/5545999614886?text=Olá!%20Estou%20navegando%20pelo%20site%20da%20Logos%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20como%20estruturar%20meu%20projeto%20digital." 
+                    target="_blank" 
+                    class="hover:opacity-80 transition-opacity">
+                        <div class="text-left leading-tight">
+                            <span class="text-[10px] font-black uppercase text-blue-400 tracking-widest">Chame no Whatsapp</span><br>
+                            <span class="text-xl font-black italic text-white">45 99961-4886</span>
+                        </div>
+                    </a>
                     </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 bg-purple-900 text-white">
-        <div class="max-w-7xl mx-auto px-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+    <footer class="py-12 bg-purple-900 border-t border-white/5 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
                 
-                <div class="space-y-6">
-                    <a href="#home">
-                        <img src="img/logo-logos.png" alt="Logos Digital" class="h-16 w-auto opacity-90 hover:opacity-100 transition">
+                <div class="space-y-4">
+                    <a href="#home" class="inline-block">
+                        <img src="img/logo-logos.png" alt="Logos Digital" class="footer-logo">
                     </a>
-                    <p class="text-purple-200 text-sm leading-relaxed font-light italic">
-                        "No princípio, era a ideia. E a ideia precisava de estrutura. Nós somos a lógica por trás da inovação. Somos código com propósito. Somos a arquitetura invisível que sustenta negócios. Nós somos Logos."
+                    <p class="text-xs text-slate-400 leading-relaxed italic pr-4">
+                        "No princípio, era a ideia. E a ideia precisava de estrutura. Nós somos a lógica por trás da inovação."
                     </p>
-                    <div class="flex gap-4 pt-4">
-                        <a href="#" class="p-3 bg-white/5 rounded-full hover:bg-orange-500 transition shadow-lg">📸</a>
-                        <a href="#" class="p-3 bg-white/5 rounded-full hover:bg-orange-500 transition shadow-lg">💼</a>
-                    </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h4 class="text-[11px] font-black uppercase tracking-[0.3em] text-orange-400">Sobre a Logos</h4>
-                    <ul class="space-y-4 text-sm font-medium text-purple-100">
-                        <li><a href="#home" class="hover:text-orange-400 transition">Home</a></li>
-                        <li><a href="#manifesto" class="hover:text-orange-400 transition">Nossa Essência</a></li>
-                        <li><a href="#portfolio" class="hover:text-orange-400 transition">Portfólio</a></li>
-                        <li><a href="#contato" class="hover:text-orange-400 transition">Fale Conosco</a></li>
+                <div>
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-list">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Quem Somos</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
                     </ul>
                 </div>
 
-                <div class="space-y-6">
-                    <h4 class="text-[11px] font-black uppercase tracking-[0.3em] text-orange-400">Canais oficiais</h4>
-                    <ul class="space-y-4 text-sm font-light text-purple-100">
-                        <li class="flex items-center gap-3">📞 (45) 99961-4886</li>
-                        <li class="flex items-center gap-3">📧 dev@logosdev.com.br</li>
-                        <li class="flex items-center gap-3">🕒 Seg. a Sex. das 8h às 18h</li>
-                        <li class="flex items-center gap-3 italic font-normal">📍 Cascavel, Paraná - Brasil</li>
+                <div>
+                    <h4 class="footer-title">Serviços</h4>
+                    <ul class="footer-list">
+                        <li><a href="#">Sistemas Core</a></li>
+                        <li><a href="#">Landing Pages</a></li>
+                        <li><a href="#">SEO Estratégico</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-list text-slate-300">
+                        <li class="flex items-center gap-2"><span>📍</span> Cascavel, PR</li>
+                        <li class="flex items-center gap-2"><span>📧</span> dev@logosdev.com.br</li>
+                        <li class="flex items-center gap-2 text-blue-400 font-bold"><span>📱</span> (45) 99961-4886</li>
                     </ul>
                 </div>
 
             </div>
 
-            <div class="mt-24 pt-8 border-t border-white/5 text-center">
-                <p class="text-[10px] text-purple-400 uppercase tracking-[0.5em] font-medium">
-                    Copyright 2026 Logos Inteligência Digital | Todos os direitos reservados
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-slate-500">
+                    &copy; 2026 LOGOS INTELIGÊNCIA DIGITAL
                 </p>
+                <div class="flex gap-6 text-[10px] uppercase tracking-widest text-slate-500">
+                    <span class="text-blue-500 font-black">Razão</span>
+                    <span class="text-blue-500 font-black">Lógica</span>
+                    <span class="text-blue-500 font-black">Princípio</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5545999614886" class="fixed bottom-8 right-8 bg-green-500 p-4 rounded-full shadow-2xl hover:bg-green-400 transition-all z-[100]">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8" alt="WhatsApp">
+    <a href="https://wa.me/5545999614886?text=Olá!%20Estou%20navegando%20pelo%20site%20da%20Logos%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20como%20estruturar%20meu%20projeto%20digital." 
+    target="_blank" 
+    class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl z-[200] hover:scale-110 transition duration-300 flex items-center justify-center"
+    title="Falar com Especialista">
+        <svg class="w-8 h-8 fill-white" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
     </a>
 
     <style>
