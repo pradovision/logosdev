@@ -511,7 +511,7 @@
                     <p class="text-slate-500 text-sm">Preencha os dados abaixo para um diagnóstico técnico.</p>
                 </div>
 
-                <form id="logos-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form id="logos-form" action="https://formspree.io/f/mlgpzaaz" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col">
                         <label class="text-[10px] font-black uppercase text-blue-600 mb-1 ml-2">Nome Completo</label>
                         <input type="text" name="name" placeholder="Ex: Leandro Prado" required class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-blue-600 outline-none">
@@ -551,7 +551,7 @@
                     </svg>
                 </div>
                 <h3 class="text-2xl font-black text-slate-900 uppercase italic">Recebido com Sucesso!</h3>
-                <p class="text-slate-500 mt-2">Aguarde, Leandro entrará em contato em breve.</p>
+                <p class="text-slate-500 mt-2">Aguarde, Um consultor entrará em contato em breve.</p>
                 <button onclick="window.location.reload()" class="mt-6 text-blue-600 font-bold text-xs uppercase tracking-widest hover:underline">Enviar outra mensagem</button>
             </div>
         </div>
@@ -673,7 +673,8 @@
                     formContainer.classList.add("hidden");
                     successMessage.classList.remove("hidden");
                 } else {
-                    alert("Ops! Houve um erro. Tente novamente ou chame no WhatsApp.");
+                    // Isso vai te mostrar o código do erro (ex: 404, 403)
+                    alert("Erro " + response.status + ": Verifique se o link do Formspree está correto e ativo.");
                     btnEnviar.innerText = "ENVIAR SOLICITAÇÃO";
                     btnEnviar.disabled = false;
                 }
