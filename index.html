@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<html lang="pt-br" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/logo-logos.png">
@@ -86,61 +85,96 @@
     }
 
     
-    /* --- ESTILIZAÇÃO DO NOVO RODAPÉ COMPACTO --- */
-    footer {
-        background: #00040a !important;
-        padding-top: 40px !important;
-        padding-bottom: 25px !important;
+    /* --- RODAPÉ AJUSTADO E COMPACTO --- */
+    footer .max-w-7xl {
+        max-width: 1000px !important; /* Reduzi de 1280px para 1000px para centralizar mais o conteúdo */
+        margin: 0 auto;
+    }
+
+    footer .grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr !important; /* Dá mais peso para a primeira coluna */
+        gap: 40px !important; /* Diminui o espaço entre as colunas */
+        align-items: start;
     }
 
     .footer-logo {
-        height: 55px !important; 
-        width: auto !important;
-        margin-bottom: 8px !important;
-        filter: drop-shadow(0 0 10px rgba(0, 98, 255, 0.2));
-    }
-
-    .footer-title {
-        color: #ffffff !important;
-        font-size: 11px !important;
-        font-weight: 800 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.2em !important;
-        margin-bottom: 15px !important;
-        display: block;
-    }
-
-    .footer-list {
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .footer-list li {
-        margin-bottom: 8px !important;
-        font-size: 13px !important;
-    }
-
-    .footer-list a {
-        color: #94a3b8 !important;
-        text-decoration: none !important;
-        transition: color 0.3s ease !important;
-    }
-
-    .footer-list a:hover {
-        color: #0062ff !important;
+        height: 80px !important; /* Tamanho equilibrado */
+        margin-bottom: 20px !important;
     }
 
     footer p.italic {
-        font-size: 12px !important;
-        line-height: 1.5 !important;
-        color: #64748b !important;
-        text-shadow: none !important;
+        max-width: 280px; /* Evita que o texto da logo fique muito largo */
+        text-align: left;
+        margin-top: 10px;
     }
 
-    footer .border-t {
-        border-color: rgba(255, 255, 255, 0.05) !important;
+    .footer-title {
+        margin-bottom: 12px !important;
+        font-size: 12px !important;
     }
+
+    .footer-list li {
+        margin-bottom: 6px !important; /* Aproxima os links um do outro */
+    }
+
+    /* Ajuste da linha de baixo (Copyright) */
+    footer .border-t {
+        margin-top: 40px !important;
+        padding-top: 20px !important;
+    }
+
+    /* Responsividade para não quebrar no celular */
+    @media (max-width: 768px) {
+        footer .grid {
+            grid-template-columns: 1fr !important;
+            text-align: center;
+            gap: 30px !important;
+        }
+        footer p.italic {
+            margin: 0 auto;
+        }
+        .footer-list {
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+/* --- CORREÇÃO DA FONTE NAS LISTAS DO FOOTER --- */
+.footer-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'Inter', sans-serif !important; /* Força a fonte Inter */
+}
+
+.footer-list li {
+    margin-bottom: 12px !important; /* Espaçamento entre itens */
+    color: #f8fafc !important;      /* Cor branca/slate claro */
+    font-size: 15px !important;      /* Tamanho mais legível como no seu menu */
+    font-weight: 600 !important;     /* Deixa a fonte mais "cheinha" (Semi-bold) */
+    display: flex;
+    align-items: center;
+}
+
+.footer-list a {
+    color: #f8fafc !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+}
+
+.footer-list a:hover {
+    color: #0062ff !important; /* Azul elétrico no hover */
+    padding-left: 5px;         /* Efeito sutil de movimento */
+}
+
+/* Ajuste específico para a coluna de Contato (ícones e texto) */
+.footer-list li span {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
 
     /* --- LIMPEZA DE CORES (FIM DO ROXO) --- */
     [class*="bg-purple-"], .bg-purple-700, .bg-purple-800, .bg-purple-900 {
@@ -200,6 +234,31 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Efeito de destaque suave nos parágrafos do Sobre */
+    #sobre p strong {
+        color: var(--logos-blue-electric);
+    }
+
+    #sobre em {
+        font-family: 'Inter', sans-serif;
+        font-style: italic;
+        color: var(--logos-blue-deep);
+        font-weight: 600;
+    }
+
+    /* Animação sutil para o código no box */
+    .font-mono p {
+        border-right: 2px solid transparent;
+        white-space: nowrap;
+        overflow: hidden;
+        width: fit-content;
+    }
+
+    /* Cria um respiro para que o menu não cubra o título ao rolar */
+    section[id] {
+        scroll-margin-top: 100px; /* Ajuste esse valor de acordo com a altura do seu menu */
+    }
 </style>
 
 </head>
@@ -207,21 +266,21 @@
 
     <nav class="absolute top-0 w-full z-50 bg-transparent">
         <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
-            <a href="#" class="transition hover:opacity-80">
-                <img src="img/logo-logos.png" alt="Logos" class="h-10 md:h-14 w-auto">
+            <a href="#contato" class="transition hover:opacity-80">
+                <img src="img/logo - logos.png" alt="Logos" class="h-10 md:h-14 w-auto">
             </a>
             
             <div class="hidden md:flex space-x-8 text-[12px] font-bold uppercase tracking-wider text-slate-300">
-                <a href="#" class="hover:text-blue-400">Home</a>
-                <a href="#" class="hover:text-blue-400">Quem Somos</a>
-                <a href="#" class="hover:text-blue-400">Serviços</a>
-                <a href="#" class="hover:text-blue-400">Portfólio</a>
-                <a href="#" class="hover:text-blue-500 text-blue-400">Fale Conosco</a>
+                <a href="#home" class="hover:text-blue-400">Home</a>
+                <a href="#sobre" class="hover:text-blue-400">Quem Somos</a>
+                <a href="#servicos" class="hover:text-blue-400">Serviços</a>
+                <a href="#portfolio" class="hover:text-blue-400">Portfólio</a>
+                <a href="#contato" class="hover:text-blue-500 text-blue-400">Fale Conosco</a>
             </div>
         </div>
     </nav>
 
-    <section class="relative min-h-[90vh] bg-matriz-gradient flex items-center pt-24 pb-40 overflow-hidden">
+    <section id="home" class="relative min-h-[90vh] bg-matriz-gradient flex items-center pt-24 pb-40 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
             
             <div class="space-y-8">
@@ -313,7 +372,83 @@
         </div>
     </section>
 
-    <section class="py-24 bg-slate-50 border-t border-slate-100">
+    <!-- SEÇÃO SOBRE NÓS -->
+    <section id="sobre" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Texto e Missão -->
+                <div class="space-y-8" data-aos="fade-right">
+                    <div>
+                        <span class="text-blue-600 font-bold text-xs uppercase tracking-[0.3em]">Nossa Identidade</span>
+                        <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-2 tracking-tighter">
+                            Engenharia Mental, <br>
+                            <span class="text-blue-600 italic">Estrutura Digital.</span>
+                        </h2>
+                    </div>
+                    
+                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                        <p>
+                            A <strong>Logos</strong> não é apenas uma agência de tecnologia; somos arquitetos da razão. Surgimos com o propósito de levar a lógica grega — o <em>Logos</em> — para o cerne do desenvolvimento de sistemas modernos.
+                        </p>
+                        <p>
+                            Nosso DNA é formado por analistas e desenvolvedores que acreditam que um sistema só é eficiente quando sua base é inabalável. Em Cascavel e para o mundo, construímos ecossistemas que suportam o crescimento real de negócios visionários.
+                        </p>
+                    </div>
+
+                    <!-- Pilares em Grid Pequena -->
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest">Nossa Visão</h4>
+                            <p class="text-slate-500 text-sm mt-1">Ser a base sólida de cada inovação tecnológica.</p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest">Nosso Método</h4>
+                            <p class="text-slate-500 text-sm mt-1">Lógica aplicada, design limpo e performance extrema.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem ou Elemento Visual -->
+                <div class="relative flex justify-center items-center" data-aos="fade-left">
+                    <!-- Box Decorativo Tech -->
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+                    
+                    <div class="relative z-10 bg-slate-900 p-8 rounded-[3rem] shadow-2xl border border-slate-800">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <span class="text-slate-500 text-[10px] uppercase font-mono tracking-widest">Logos_Core_Values.js</span>
+                        </div>
+                        
+                        <div class="font-mono text-xs md:text-sm space-y-2 text-blue-300">
+                            <p><span class="text-purple-400">class</span> <span class="text-yellow-300">LogosIntelligence</span> {</p>
+                            <p class="pl-4"><span class="text-purple-400">constructor</span>() {</p>
+                            <p class="pl-8 text-slate-400">this.mission = <span class="text-green-400">"Estruturar o Caos"</span>;</p>
+                            <p class="pl-8 text-slate-400">this.core = <span class="text-green-400">"Lógica Pura"</span>;</p>
+                            <p class="pl-8 text-slate-400">this.focus = <span class="text-green-400">"Escalabilidade"</span>;</p>
+                            <p class="pl-4">}</p>
+                            <p>}</p>
+                        </div>
+                        
+                        <!-- Badge de Tempo -->
+                        <div class="mt-8 pt-6 border-t border-slate-800">
+                            <div class="flex items-center gap-4">
+                                <span class="text-4xl font-black text-white italic">2026</span>
+                                <span class="text-slate-500 text-[10px] leading-tight uppercase">Liderando a <br> Razão Digital</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-24 bg-slate-50 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6 text-center">
             
             <div class="mb-20" data-aos="zoom-in">
@@ -404,21 +539,25 @@
                 </a>
             </div>
 
-            <div class="pt-24 border-t border-white/10">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Confira alguns de nossos trabalhos</h2>
-                <p class="text-purple-200 text-sm mb-16 uppercase tracking-widest font-bold">Somos especialistas em criar soluções de impacto.</p>
+            <!-- SEÇÃO PORTFÓLIO -->
+            <div id="portfolio" class="pt-24 border-t border-white/10">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Confira alguns de nossos trabalhos</h2>
+                <p class="text-blue-400 text-sm mb-16 uppercase tracking-widest font-bold">Somos especialistas em criar soluções de impacto.</p>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projeto 1 -->
                     <div class="rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500" data-aos="fade-up">
                         <img src="img/Sites Modelo (1).png" alt="Projeto Logos 1" class="w-full h-auto">
                     </div>
+                    <!-- Projeto 2 -->
                     <div class="rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-delay="100">
                         <img src="img/Sites Modelo (2).png" alt="Projeto Logos 2" class="w-full h-auto">
                     </div>
+                    <!-- Projeto 3 -->
                     <div class="rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-delay="200">
                         <img src="img/Sites Modelo (3).png" alt="Projeto Logos 3" class="w-full h-auto">
                     </div>
-                    </div>
+                </div>
             </div>
 
         </div>
@@ -515,7 +654,7 @@
                 <form id="logos-form" action="https://formspree.io/f/mlgpzaaz" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col">
                         <label class="text-[10px] font-black uppercase text-blue-600 mb-1 ml-2">Nome Completo</label>
-                        <input type="text" name="name" placeholder="Ex: Leandro Prado" required class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-blue-600 outline-none">
+                        <input type="text" name="name" placeholder="Ex: João Felipe" required class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-blue-600 outline-none">
                     </div>
 
                     <div class="flex flex-col">
@@ -577,15 +716,10 @@
 
     <footer class="py-12 bg-purple-900 border-t border-white/5 text-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
-                
-                <div class="space-y-4">
-                    <a href="#home" class="inline-block">
-                        <img src="img/logo-logos.png" alt="Logos Digital" class="footer-logo">
-                    </a>
-                    <p class="text-xs text-slate-400 leading-relaxed italic pr-4">
-                        "No princípio, era a ideia. E a ideia precisava de estrutura. Nós somos a lógica por trás da inovação."
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-start">
+                    <img src="img/logo - logos.png" class="footer-logo">
+                    <p class="text-xs text-slate-400 italic">"No princípio, era a ideia. E a ideia precisava de estrutura."</p>
                 </div>
 
                 <div>
@@ -600,21 +734,20 @@
                 <div>
                     <h4 class="footer-title">Serviços</h4>
                     <ul class="footer-list">
-                        <li><a href="#">Sistemas Core</a></li>
-                        <li><a href="#">Landing Pages</a></li>
-                        <li><a href="#">SEO Estratégico</a></li>
+                        <li><a href="#servicos">Sistemas Core</a></li>
+                        <li><a href="#servicos">Landing Pages</a></li>
+                        <li><a href="#servicos">Automação & PDV</a></li>
                     </ul>
                 </div>
 
-                <div class="space-y-3">
+                <div>
                     <h4 class="footer-title">Contato</h4>
-                    <ul class="footer-list text-slate-300">
-                        <li class="flex items-center gap-2"><span>📍</span> Cascavel, PR</li>
-                        <li class="flex items-center gap-2"><span>📧</span> dev@logosdev.com.br</li>
-                        <li class="flex items-center gap-2 text-blue-400 font-bold"><span>📱</span> (45) 99961-4886</li>
+                    <ul class="footer-list">
+                        <li class="flex items-center gap-2">📍 Cascavel, PR</li>
+                        <li class="flex items-center gap-2">📧 dev@logosdev.com.br</li>
+                        <li class="flex items-center gap-2 text-blue-400 font-bold">📱 (45) 99961-4886</li>
                     </ul>
                 </div>
-
             </div>
 
             <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
