@@ -85,101 +85,50 @@
     }
 
     
-    /* --- RODAPÉ AJUSTADO E COMPACTO --- */
-    footer .max-w-7xl {
-        max-width: 1000px !important; /* Reduzi de 1280px para 1000px para centralizar mais o conteúdo */
-        margin: 0 auto;
-    }
+/* ============================================================
+   RODAPÉ (DESKTOP)
+   ============================================================ */
+footer .max-w-7xl {
+    max-width: 1000px !important; 
+    margin: 0 auto;
+}
 
-    footer .grid {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1.2fr !important; /* Dá mais peso para a primeira coluna */
-        gap: 40px !important; /* Diminui o espaço entre as colunas */
-        align-items: start;
-    }
+footer .grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr !important;
+    gap: 40px !important;
+    align-items: start;
+}
 
-    .footer-logo {
-        height: 80px !important; /* Tamanho equilibrado */
-        margin-bottom: 20px !important;
-    }
+.footer-logo {
+    height: 80px !important;
+    margin-bottom: 20px !important;
+}
 
-    footer p.italic {
-        max-width: 280px; /* Evita que o texto da logo fique muito largo */
-        text-align: left;
-        margin-top: 10px;
-    }
+footer p.italic {
+    max-width: 280px;
+    text-align: left;
+    margin-top: 10px;
+}
 
-    .footer-title {
-        margin-bottom: 12px !important;
-        font-size: 12px !important;
-    }
+.footer-title {
+    margin-bottom: 12px !important;
+    font-size: 12px !important;
+}
 
-    .footer-list li {
-        margin-bottom: 6px !important; /* Aproxima os links um do outro */
-    }
-
-    /* Ajuste da linha de baixo (Copyright) */
-    footer .border-t {
-        margin-top: 40px !important;
-        padding-top: 20px !important;
-    }
-
-    /* Responsividade para não quebrar no celular */
-    @media (max-width: 768px) {
-        footer .grid {
-            grid-template-columns: 1fr !important;
-            text-align: center;
-            gap: 30px !important;
-        }
-        footer p.italic {
-            margin: 0 auto;
-        }
-        .footer-list {
-            display: inline-block;
-            text-align: center;
-        }
-        #sobre {
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
-        text-align: center; /* Centraliza o texto no celular */
-    }
-
-    #sobre h2 {
-        font-size: 28px !important; /* Diminui o título para não quebrar */
-    }
-
-    #sobre .grid-cols-2 {
-        grid-template-columns: 1fr !important; /* Empilha Visão e Método */
-        gap: 20px;
-    }
-
-    /* Ajuste do Box de Código */
-    #sobre .relative.z-10.bg-slate-900 {
-        padding: 20px !important;
-        margin-top: 30px;
-        border-radius: 2rem !important;
-        width: 100% !important;
-        overflow-x: hidden; /* Evita scroll lateral */
-    }
-
-    #sobre .font-mono {
-        font-size: 11px !important; /* Letra menor para o código caber */
-    }
-    }
-
-/* --- CORREÇÃO DA FONTE NAS LISTAS DO FOOTER --- */
+/* Listas do Footer */
 .footer-list {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-family: 'Inter', sans-serif !important; /* Força a fonte Inter */
+    font-family: 'Inter', sans-serif !important;
 }
 
 .footer-list li {
-    margin-bottom: 12px !important; /* Espaçamento entre itens */
-    color: #f8fafc !important;      /* Cor branca/slate claro */
-    font-size: 15px !important;      /* Tamanho mais legível como no seu menu */
-    font-weight: 600 !important;     /* Deixa a fonte mais "cheinha" (Semi-bold) */
+    margin-bottom: 12px !important;
+    color: #f8fafc !important;      
+    font-size: 15px !important;      
+    font-weight: 600 !important;     
     display: flex;
     align-items: center;
 }
@@ -192,14 +141,69 @@
 }
 
 .footer-list a:hover {
-    color: #0062ff !important; /* Azul elétrico no hover */
-    padding-left: 5px;         /* Efeito sutil de movimento */
+    color: #0062ff !important;
+    padding-left: 5px;
 }
 
-/* Ajuste específico para a coluna de Contato (ícones e texto) */
 .footer-list li span {
     margin-right: 10px;
     font-size: 18px;
+}
+
+footer .border-t {
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+}
+
+/* ============================================================
+   RESPONSIVIDADE (MOBILE) - AJUSTES FINAIS
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Ajustes do Footer no Celular */
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+        gap: 30px !important;
+    }
+
+    footer p.italic {
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    /* Centraliza a lista e os ícones de contato perfeitamente */
+    .footer-list li {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    /* Ajustes da Seção Sobre no Celular */
+    #sobre {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        text-align: center !important;
+    }
+
+    #sobre h2 {
+        font-size: 28px !important;
+    }
+
+    #sobre .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    #sobre .relative.z-10.bg-slate-900 {
+        padding: 20px !important;
+        margin-top: 30px;
+        border-radius: 2rem !important;
+        width: 100% !important;
+        overflow-x: hidden;
+    }
+
+    #sobre .font-mono {
+        font-size: 11px !important;
+    }
 }
 
 
