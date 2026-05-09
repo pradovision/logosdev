@@ -138,6 +138,33 @@
             display: inline-block;
             text-align: center;
         }
+        #sobre {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        text-align: center; /* Centraliza o texto no celular */
+    }
+
+    #sobre h2 {
+        font-size: 28px !important; /* Diminui o título para não quebrar */
+    }
+
+    #sobre .grid-cols-2 {
+        grid-template-columns: 1fr !important; /* Empilha Visão e Método */
+        gap: 20px;
+    }
+
+    /* Ajuste do Box de Código */
+    #sobre .relative.z-10.bg-slate-900 {
+        padding: 20px !important;
+        margin-top: 30px;
+        border-radius: 2rem !important;
+        width: 100% !important;
+        overflow-x: hidden; /* Evita scroll lateral */
+    }
+
+    #sobre .font-mono {
+        font-size: 11px !important; /* Letra menor para o código caber */
+    }
     }
 
 /* --- CORREÇÃO DA FONTE NAS LISTAS DO FOOTER --- */
